@@ -27,7 +27,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         public override string AppURL
         {
-            get { return ""; }
+            get { return "https://github.com/HedNet/Spartan2016.1/raw/master/apis/FoxitReader42_enu_Setup.exe"; }
         }
     }
 
