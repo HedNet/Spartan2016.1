@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FxInstaller));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(696, 411);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Ria.FxonlineInstaller.Properties.Resources.RiaBanner;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(676, 267);
+            this.panel1.TabIndex = 0;
             // 
             // progressBar1
             // 
@@ -90,16 +103,9 @@
             this.progressBar2.TabIndex = 3;
             this.progressBar2.Visible = false;
             // 
-            // panel1
+            // timer1
             // 
-            this.panel1.BackgroundImage = global::Ria.FxonlineInstaller.Properties.Resources.RiaBanner;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(676, 267);
-            this.panel1.TabIndex = 0;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FxInstaller
             // 
@@ -127,6 +133,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

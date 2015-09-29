@@ -27,6 +27,7 @@ namespace Ria.FxonlineInstaller
             this.Visible = true;
             /* Start installer */
             InitializeInstallation();       // Starts installation
+            timer1.Enabled = true;
         }
 
         private void InitializeInstallation()
@@ -57,7 +58,7 @@ namespace Ria.FxonlineInstaller
             }
             label1.Text = "Installation is finished...";
             MessageBox.Show("FX-Online Installer", "FX Online installation finished. Thank you for choosing Ria Money Transfer.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Application.Exit();
+            
         }
 
         private void InitializeProgressBar()
@@ -145,6 +146,11 @@ namespace Ria.FxonlineInstaller
 
             /* Finalizamos la lista de apps */
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
