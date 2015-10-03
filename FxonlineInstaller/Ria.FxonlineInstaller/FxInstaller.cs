@@ -56,9 +56,15 @@ namespace Ria.FxonlineInstaller
                 progressBar1.Value++;
                 Application.DoEvents();
             }
+            createIcons();
             label1.Text = "Installation is finished...";
             MessageBox.Show("FX-Online Installer", "FX Online installation finished. Thank you for choosing Ria Money Transfer.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
+        }
+
+        private void createIcons()
+        {
+            //throw new NotImplementedException();
         }
 
         private void InitializeProgressBar()

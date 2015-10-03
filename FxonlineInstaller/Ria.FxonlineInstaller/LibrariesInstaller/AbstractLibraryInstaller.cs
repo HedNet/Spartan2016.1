@@ -44,7 +44,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             {
                 if (!isInstalled())
                 {
-                    if (MessageBox.Show(String.Format(MsgAppNotInstalled, AppName), AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.OK)
+                    if (MessageBox.Show(String.Format(MsgAppNotInstalled, AppName), AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         Install((string)Download(this.AppURL));
                 }
             }

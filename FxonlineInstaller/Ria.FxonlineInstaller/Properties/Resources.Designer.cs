@@ -63,19 +63,9 @@ namespace Ria.FxonlineInstaller.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CapturaRIA {
+        internal static System.Drawing.Bitmap RiaBanner1 {
             get {
-                object obj = ResourceManager.GetObject("CapturaRIA", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RiaBanner {
-            get {
-                object obj = ResourceManager.GetObject("RiaBanner", resourceCulture);
+                object obj = ResourceManager.GetObject("RiaBanner1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

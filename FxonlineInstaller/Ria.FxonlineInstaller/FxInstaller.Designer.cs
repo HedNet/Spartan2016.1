@@ -62,7 +62,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Ria.FxonlineInstaller.Properties.Resources.RiaBanner;
+            this.panel1.BackgroundImage = global::Ria.FxonlineInstaller.Properties.Resources.RiaBanner1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(10, 10);
