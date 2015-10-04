@@ -63,10 +63,78 @@ namespace Ria.FxonlineInstaller.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CapturaRIA {
+            get {
+                object obj = ResourceManager.GetObject("CapturaRIA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon logmein {
+            get {
+                object obj = ResourceManager.GetObject("logmein", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon ria {
+            get {
+                object obj = ResourceManager.GetObject("ria", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RiaBanner {
+            get {
+                object obj = ResourceManager.GetObject("RiaBanner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RiaBanner1 {
             get {
                 object obj = ResourceManager.GetObject("RiaBanner1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 	Dim WshShell
+        ///
+        ///	Set objShell = CreateObject(&quot;WScript.Shell&quot;) 
+        ///
+        ///	Dim objMyShortcut
+        ///	Dim iconFolderName
+        ///	Dim iconFullPath
+        ///	Dim SelectedLanguage
+        ///	Dim strTargetPath
+        ///	
+        ///	Set objMyShortcut = objShell.CreateShortcut(objShell.SpecialFolders(&quot;Desktop&quot;) + &quot;\RIA - FxOnline.lnk&quot;)
+        ///	&apos;get .ico path name
+        ///	iconFolderName = &quot;.\.&quot;
+        ///	objMyShortcut.IconLocation = &quot;ria.ico&quot;
+        ///
+        ///	&apos;Get IE 32-bit path	
+        ///	If OSArc = 64 Then
+        ///		strTargetPath = &quot;%ProgramFiles(x86)%\Internet Explorer\iexplore.exe&quot;
+        ///	Else 
+        ///		strTargetPath = &quot; [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string RiaShortcuts {
+            get {
+                return ResourceManager.GetString("RiaShortcuts", resourceCulture);
             }
         }
     }

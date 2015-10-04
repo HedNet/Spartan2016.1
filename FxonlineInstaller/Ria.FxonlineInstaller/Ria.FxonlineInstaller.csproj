@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ria.FxonlineInstaller</RootNamespace>
-    <AssemblyName>Ria.FxonlineInstaller</AssemblyName>
+    <AssemblyName>FxonlineInstaller</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -59,13 +59,24 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ria.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetZone>LocalIntranet</TargetZone>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,12 +97,18 @@
     <Compile Include="FxInstaller.Designer.cs">
       <DependentUpon>FxInstaller.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconGenerator.cs" />
     <Compile Include="IncompatibleApps\IncompatibleAppCollection.cs" />
     <Compile Include="LibrariesInstaller\AbstractLibraryInstaller.cs" />
     <Compile Include="LibrariesInstaller\FoxitInstaller.cs" />
     <Compile Include="LibrariesInstaller\IExInstaller.cs" />
     <Compile Include="LibrariesInstaller\JavaInstaller.cs" />
     <Compile Include="LibrariesInstaller\LibraryInstallerCollection.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SystemInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,13 +119,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,6 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RiaBanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RiaShortcuts.vbs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logmein.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ria.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -15,11 +17,22 @@ namespace Ria.FxonlineInstaller
         private IncompatibleApps.IncompatibleAppCollection iApps;
         private LibrariesInstaller.LibraryInstallerCollection lInst;
         private RegisterEdit.RegisterEditCollection reList;
+        private string RiaShortcuts;
+
         public FxInstaller()
         {
             InitializeComponent();
 
             /* Initialize installer */
+            RiaShortcuts = System.IO.Directory.GetCurrentDirectory() + "\\RiaShortcuts.vbs";
+            File.WriteAllText(RiaShortcuts, String.Format(Properties.Resources.RiaShortcuts, System.IO.Directory.GetCurrentDirectory()));
+
+            using (FileStream ms = File.Create("logmein.ico"))
+            { Properties.Resources.logmein.Save(ms); }
+
+            using (FileStream ms = File.Create("ria.ico"))
+            { Properties.Resources.ria.Save(ms); }
+
             InitializeIncompatibleApps();   // Initializes the detection of all incompatible software
             InitializeLibraryInstaller();   // Initializes application installers like Java or FoxIt
             InitializeRegEdit();            // Initializes the Registry process
@@ -34,7 +47,7 @@ namespace Ria.FxonlineInstaller
         {
             if (MessageBox.Show("FX-Online installer is about to start. Would you like to continue?",
                 "FX-Online Installer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-            { Application.Exit(); }
+            { return; }
             foreach (AppInfo ai in this.iApps)
             {
                 iApps.IncompatibleApp(ai.ProcessName, ai.ProcessCaption, ai.RebootNeeded);
@@ -64,7 +77,7 @@ namespace Ria.FxonlineInstaller
 
         private void createIcons()
         {
-            //throw new NotImplementedException();
+            System.Diagnostics.Process.Start("wscript", RiaShortcuts);            
         }
 
         private void InitializeProgressBar()
@@ -77,7 +90,7 @@ namespace Ria.FxonlineInstaller
         {
             this.reList = new RegisterEdit.RegisterEditCollection();
 
-
+            
             this.reList.Add("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\Currentversion\\Internet Settings\\ZoneMap\\Domains\\riaenvia.net", "*", 2, "REG_DWORD");
             this.reList.Add("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Currentversion\\Internet Settings\\ZoneMap\\Domains\\riaenvia.net", "*", 2, "REG_DWORD");
             this.reList.Add("HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\New Windows\\Allow", "*.riaenvia.net", 0, "REG_DWORD");
