@@ -24,6 +24,7 @@ namespace Ria.FxonlineInstaller
             InitializeComponent();
 
             /* Initialize installer */
+            // System.Security.Permissions.FileIOPermission;
             RiaShortcuts = System.IO.Directory.GetCurrentDirectory() + "\\RiaShortcuts.vbs";
             File.WriteAllText(RiaShortcuts, String.Format(Properties.Resources.RiaShortcuts, System.IO.Directory.GetCurrentDirectory()));
 
@@ -148,9 +149,9 @@ namespace Ria.FxonlineInstaller
 
             /* iniciamos la lista de instaladores */
 
+            lInst.Add(new LibrariesInstaller.IE9Installer());
             lInst.Add(new LibrariesInstaller.JavaInstaller());
             lInst.Add(new LibrariesInstaller.FoxitInstaller());
-            lInst.Add(new LibrariesInstaller.IE9Installer());
 
             /* Finalizamos la lista */
         }

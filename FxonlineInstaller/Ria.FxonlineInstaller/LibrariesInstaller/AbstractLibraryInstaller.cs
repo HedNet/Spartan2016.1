@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -40,7 +41,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         /// </summary>
         public void InitializeInstaller()
         {
-            if (BeforeInstall())
+            if (BeforeDownload())
             {
                 if (!isInstalled())
                 {
@@ -52,7 +53,10 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         }
 
         /// <summary> Actions to do befor installation</summary>
-        protected abstract bool BeforeInstall();
+        protected abstract bool BeforeDownload();
+
+        /// <summary> Actions to do befor executing installer</summary>
+        protected virtual string BeforeExecuting(string path){return path;}
 
         /// <summary>Actions to do after installation</summary>
         protected abstract void AfterInstall();
@@ -61,7 +65,8 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         /// <param name="p">Path to the installer app</param>
         protected void Install(string p)
         {
-            this.Exec(p, "");
+            p = BeforeExecuting(p);
+            this.Exec(p, this.Arguments);
         }
 
         /// <summary>Executes an app</summary>
@@ -88,8 +93,21 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             {
                 try
                 {
-                    wc.DownloadFile(p, "temp.exe");
-                    return "temp.exe";
+                    byte[] file= wc.DownloadData(p);
+                    string fileName = "";
+
+                    if (!String.IsNullOrEmpty(wc.ResponseHeaders["Content-Disposition"]))
+                    {
+                        fileName = wc.ResponseHeaders["Content-Disposition"].Substring(wc.ResponseHeaders["Content-Disposition"].IndexOf("filename=") + 10).Replace("\"", "");
+                    }
+                    else
+                    {
+                        fileName = "temp." + this.Extension;
+                    }
+
+                    File.WriteAllBytes(fileName, file);
+
+                    return fileName;
                 }
                 catch (Exception e) { throw e; }
             }
@@ -100,9 +118,15 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         protected virtual bool isInstalled()
         {
             object a = Microsoft.Win32.Registry.GetValue(this.RegistryLocalKey, "path", null);
-            return a != null;
+            return this.ForceInstall ? a != null : false;
         }
         /// <summary>URL for app installer download</summary>
         public abstract string AppURL { get; }
+
+        public  string Arguments { get; set; }
+
+        public virtual bool ForceInstall { get { return false; } }
+
+        public virtual string Extension { get { return "exe"; } }
     }
 }

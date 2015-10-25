@@ -17,7 +17,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\foxitreader.exe"; }
         }
 
-        protected override bool BeforeInstall()
+        protected override bool BeforeDownload()
         {
             AcrobatReaderChecker arc = new AcrobatReaderChecker();
             return !arc.check();
@@ -38,7 +38,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         public override string RegistryLocalKey { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\AcroRd32.exe"; } }
 
-        protected override bool BeforeInstall()
+        protected override bool BeforeDownload()
         { return false; }
 
         protected override void AfterInstall() { }

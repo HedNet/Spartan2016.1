@@ -56,14 +56,14 @@
     <ManifestKeyFile>Ria.FxonlineInstaller_ClaveTemporal.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <TargetZone>Internet</TargetZone>
+    <TargetZone>Custom</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -72,11 +72,12 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\ria.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -100,6 +101,8 @@
     <Compile Include="IconGenerator.cs" />
     <Compile Include="IncompatibleApps\IncompatibleAppCollection.cs" />
     <Compile Include="LibrariesInstaller\AbstractLibraryInstaller.cs" />
+    <Compile Include="LibrariesInstaller\YubikeyInstaller.cs" />
+    <Compile Include="LibrariesInstaller\ScriptXInstaller.cs" />
     <Compile Include="LibrariesInstaller\FoxitInstaller.cs" />
     <Compile Include="LibrariesInstaller\IExInstaller.cs" />
     <Compile Include="LibrariesInstaller\JavaInstaller.cs" />
@@ -120,7 +123,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.manifest" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

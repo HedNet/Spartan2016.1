@@ -25,3 +25,8 @@ C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInst
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\FxonlineInstaller.pdb
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.exe
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.pdb
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.TrustInfo.xml
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.exe.manifest
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\FxonlineInstaller.exe.manifest
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\FxonlineInstaller.application
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.application

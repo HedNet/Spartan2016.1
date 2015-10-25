@@ -13,7 +13,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public override string RegistryLocalKey
         { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\IEXPLORE.EXE"; } }
 
-        protected override bool BeforeInstall() { return this.AppURL != null; }
+        protected override bool BeforeDownload() { return this.AppURL != null; }
         protected override void AfterInstall() { }
 
         public override string AppURL
