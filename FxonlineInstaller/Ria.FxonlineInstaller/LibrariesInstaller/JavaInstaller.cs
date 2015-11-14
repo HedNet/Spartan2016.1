@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Ria.FxonlineInstaller.LibrariesInstaller
 {
     public class JavaInstaller : AbstractLibraryInstaller
     {
-
+        public JavaInstaller(ProgressBar progressBar) : base(progressBar) { }
         public override string AppName
         { get { return "Java"; } }
 

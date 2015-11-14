@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Ria.FxonlineInstaller.LibrariesInstaller
 {
     public class FoxitInstaller : AbstractLibraryInstaller
     {
+        public FoxitInstaller(ProgressBar progressBar) : base(progressBar) { }
         public override string AppName
         {
             get { return "Foxit 4.2"; }
@@ -19,7 +21,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         protected override bool BeforeDownload()
         {
-            AcrobatReaderChecker arc = new AcrobatReaderChecker();
+            AcrobatReaderChecker arc = new AcrobatReaderChecker(this.progressBar);
             return !arc.check();
         }
 
@@ -33,7 +35,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
     public class AcrobatReaderChecker : AbstractLibraryInstaller
     {
-
+        public AcrobatReaderChecker(ProgressBar progressBar) : base(progressBar) { }
         public override string AppName { get { return ""; } }
 
         public override string RegistryLocalKey { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\AcroRd32.exe"; } }

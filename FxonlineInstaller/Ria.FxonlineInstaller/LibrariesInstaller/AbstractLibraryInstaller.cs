@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,13 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         // Resultado de la ejecución de una aplicación
         public Process Result;
+        protected ProgressBar progressBar;
+
+        public AbstractLibraryInstaller(ProgressBar progressBar)
+        {
+            // TODO: Complete member initialization
+            this.progressBar = progressBar;
+        }
         
         // Mensaje del installador
         private string MsgAppNotInstalled { get { return "{0} is not installed on your PC. Would you like to installed?"; } }
@@ -45,7 +53,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             {
                 if (!isInstalled())
                 {
-                    if (MessageBox.Show(String.Format(MsgAppNotInstalled, AppName), AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (this.ForceInstall || MessageBox.Show(String.Format(MsgAppNotInstalled, AppName), AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         Install((string)Download(this.AppURL));
                 }
             }
@@ -93,24 +101,53 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             {
                 try
                 {
-                    byte[] file= wc.DownloadData(p);
                     string fileName = "";
+                    byte[] file = new byte[0];
+                    bool isBusy = true;
 
-                    if (!String.IsNullOrEmpty(wc.ResponseHeaders["Content-Disposition"]))
+                    this.progressBar.Visible = true;
+                    this.progressBar.Value = 0;
+                    this.progressBar.Minimum = 0;
+                    this.progressBar.Maximum = 100;
+                    int progressValue = 0;
+
+                    wc.DownloadProgressChanged += (s, e) =>
                     {
-                        fileName = wc.ResponseHeaders["Content-Disposition"].Substring(wc.ResponseHeaders["Content-Disposition"].IndexOf("filename=") + 10).Replace("\"", "");
-                    }
-                    else
-                    {
-                        fileName = "temp." + this.Extension;
-                    }
+                        progressValue = e.ProgressPercentage;
+                    };
+                    wc.DownloadDataCompleted += (s, e) =>
+                    {                        
+                        file = e.Result;
 
-                    File.WriteAllBytes(fileName, file);
+                        if (!String.IsNullOrEmpty(wc.ResponseHeaders["Content-Disposition"]))
+                        {
+                            fileName = wc.ResponseHeaders["Content-Disposition"].Substring(wc.ResponseHeaders["Content-Disposition"].IndexOf("filename=") + 10).Replace("\"", "");
+                        }
+                        else
+                        {
+                            fileName = "temp." + this.Extension;
+                        }
 
+                        File.WriteAllBytes(fileName, file);
+                        isBusy = false;
+                    };
+                    wc.DownloadDataAsync(new Uri(p));
+                    while (isBusy) { this.progressBar.Value = progressValue; Application.DoEvents(); }
+                    this.progressBar.Visible = false;
                     return fileName;
                 }
                 catch (Exception e) { throw e; }
             }
+        }
+
+        void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void DoWork(object sender, DoWorkEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>Checks if the app is installed</summary>

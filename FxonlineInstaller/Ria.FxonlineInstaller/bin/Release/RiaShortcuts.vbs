@@ -11,7 +11,7 @@
 	Set objMyShortcut = objShell.CreateShortcut(objShell.SpecialFolders("Desktop") + "\RIA - FxOnline.lnk")
 	'get .ico path name
 	iconFolderName = ".\."
-	objMyShortcut.IconLocation = "C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\ria.ico"
+	objMyShortcut.IconLocation = "C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Release\ria.ico"
 
 	'Get IE 32-bit path	
 	If OSArc = 64 Then
@@ -31,7 +31,7 @@
 	Set objMyShortcut = objShell.CreateShortcut(objShell.SpecialFolders("Desktop") + "\Live Help RIA.lnk")
 	'get .ico path name
 	iconFolderName = ".\."
-	objMyShortcut.IconLocation = "C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\logmein.ico"
+	objMyShortcut.IconLocation = "C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Release\logmein.ico"
 	strPath = "http://www.logmein123.com/"
 	objMyShortcut.TargetPath = strPath
 	

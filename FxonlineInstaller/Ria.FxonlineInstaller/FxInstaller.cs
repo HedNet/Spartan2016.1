@@ -51,17 +51,17 @@ namespace Ria.FxonlineInstaller
             { return; }
             foreach (AppInfo ai in this.iApps)
             {
-                iApps.IncompatibleApp(ai.ProcessName, ai.ProcessCaption, ai.RebootNeeded);
-                progressBar1.Value++;
                 label1.Text = String.Format("Checking for {0}", ai.ProcessName);
                 Application.DoEvents();
+                iApps.IncompatibleApp(ai.ProcessName, ai.ProcessCaption, ai.RebootNeeded);
+                progressBar1.Value++;
             }
             foreach (LibrariesInstaller.AbstractLibraryInstaller ali in this.lInst)
             {
-                ali.InitializeInstaller();
-                progressBar1.Value++;
                 label1.Text = String.Format("Checking for {0} installation", ali.AppName);
                 Application.DoEvents();
+                ali.InitializeInstaller();
+                progressBar1.Value++;
             }
             label1.Text = "Configuring internet ActiveX";
             foreach (RegisterEdit.RegisterInfo ri in this.reList)
@@ -149,9 +149,11 @@ namespace Ria.FxonlineInstaller
 
             /* iniciamos la lista de instaladores */
 
-            lInst.Add(new LibrariesInstaller.IE9Installer());
-            lInst.Add(new LibrariesInstaller.JavaInstaller());
-            lInst.Add(new LibrariesInstaller.FoxitInstaller());
+            lInst.Add(new LibrariesInstaller.IE9Installer(this.progressBar2));
+            lInst.Add(new LibrariesInstaller.JavaInstaller(this.progressBar2));
+            lInst.Add(new LibrariesInstaller.FoxitInstaller(this.progressBar2));
+            lInst.Add(new LibrariesInstaller.ScriptXInstaller(this.progressBar2));
+            lInst.Add(new LibrariesInstaller.YubikeyInstaller(this.progressBar2));
 
             /* Finalizamos la lista */
         }

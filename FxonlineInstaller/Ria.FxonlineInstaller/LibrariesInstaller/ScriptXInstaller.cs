@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Ria.FxonlineInstaller.LibrariesInstaller
 {
     class ScriptXInstaller : AbstractLibraryInstaller
     {
+        public ScriptXInstaller(ProgressBar progressBar) : base(progressBar) { }
         public override bool ForceInstall { get { return true; } }
 
         public override string AppName
@@ -16,7 +18,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         public override string RegistryLocalKey
         {
-            get { return ""; }
+            get { return "HKEY_CURRENT_USER"; }
         }
 
         public override string Extension { get { return "msi"; } }
@@ -31,7 +33,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         public override string AppURL
         {
-            get { return "https://github.com/HedNet/Spartan2016.1/raw/master/apis/ScriptX.exe"; }
+            get { return "https://github.com/HedNet/Spartan2016.1/raw/master/apis/ScriptX.msi"; }
         }
     }
 }

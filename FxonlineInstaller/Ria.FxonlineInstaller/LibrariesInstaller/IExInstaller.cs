@@ -7,6 +7,8 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 {
     public class IE9Installer : AbstractLibraryInstaller
     {
+
+        public IE9Installer(System.Windows.Forms.ProgressBar progressBar) : base(progressBar) { }
         public override string AppName
         { get { return "Internet Explorer 9"; } }
 
