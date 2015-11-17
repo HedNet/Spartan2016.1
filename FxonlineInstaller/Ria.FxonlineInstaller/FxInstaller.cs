@@ -51,7 +51,7 @@ namespace Ria.FxonlineInstaller
             { return; }
             foreach (AppInfo ai in this.iApps)
             {
-                label1.Text = String.Format("Checking for {0}", ai.ProcessName);
+                label1.Text = String.Format("Checking for {0}", ai.ProcessCaption);
                 Application.DoEvents();
                 iApps.IncompatibleApp(ai.ProcessName, ai.ProcessCaption, ai.RebootNeeded);
                 progressBar1.Value++;
