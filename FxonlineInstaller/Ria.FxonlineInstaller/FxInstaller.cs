@@ -165,6 +165,7 @@ namespace Ria.FxonlineInstaller
             /* Iniciamos la lista de apps incompatibles */
 
             this.iApps.Add("DF5Serv", "Deep Freeze", true);
+            this.iApps.Add("FrzState2k", "Deep Freeze", true);
 
             /* Finalizamos la lista de apps */
 
