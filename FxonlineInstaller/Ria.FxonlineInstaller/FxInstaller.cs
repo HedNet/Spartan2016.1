@@ -22,26 +22,6 @@ namespace Ria.FxonlineInstaller
         public FxInstaller()
         {
             InitializeComponent();
-
-            /* Initialize installer */
-            // System.Security.Permissions.FileIOPermission;
-            RiaShortcuts = System.IO.Directory.GetCurrentDirectory() + "\\RiaShortcuts.vbs";
-            File.WriteAllText(RiaShortcuts, String.Format(Properties.Resources.RiaShortcuts, System.IO.Directory.GetCurrentDirectory()));
-
-            using (FileStream ms = File.Create("logmein.ico"))
-            { Properties.Resources.logmein.Save(ms); }
-
-            using (FileStream ms = File.Create("ria.ico"))
-            { Properties.Resources.ria.Save(ms); }
-
-            InitializeIncompatibleApps();   // Initializes the detection of all incompatible software
-            InitializeLibraryInstaller();   // Initializes application installers like Java or FoxIt
-            InitializeRegEdit();            // Initializes the Registry process
-            InitializeProgressBar();        // Initializes the installer progress bar
-            this.Visible = true;
-            /* Start installer */
-            InitializeInstallation();       // Starts installation
-            timer1.Enabled = true;
         }
 
         private void InitializeInstallation()
@@ -171,9 +151,28 @@ namespace Ria.FxonlineInstaller
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void FxInstaller_Load(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            throw new Exception("Kaboom");
+            /* Initialize installer */
+            // System.Security.Permissions.FileIOPermission;
+            RiaShortcuts = System.IO.Directory.GetCurrentDirectory() + "\\RiaShortcuts.vbs";
+            File.WriteAllText(RiaShortcuts, String.Format(Properties.Resources.RiaShortcuts, System.IO.Directory.GetCurrentDirectory()));
+
+            using (FileStream ms = File.Create("logmein.ico"))
+            { Properties.Resources.logmein.Save(ms); }
+
+            using (FileStream ms = File.Create("ria.ico"))
+            { Properties.Resources.ria.Save(ms); }
+
+            InitializeIncompatibleApps();   // Initializes the detection of all incompatible software
+            InitializeLibraryInstaller();   // Initializes application installers like Java or FoxIt
+            InitializeRegEdit();            // Initializes the Registry process
+            InitializeProgressBar();        // Initializes the installer progress bar
+            this.Visible = true;
+            /* Start installer */
+            InitializeInstallation();       // Starts installation
+            Application.Exit();
         }
     }
 }
