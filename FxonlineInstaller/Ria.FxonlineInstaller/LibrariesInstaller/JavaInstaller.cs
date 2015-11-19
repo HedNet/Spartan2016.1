@@ -15,7 +15,11 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public override string RegistryLocalKey
         { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\javaws.exe"; } }
 
-        protected override bool BeforeDownload() { return true; }
+        protected override bool BeforeDownload()
+        {
+            this.Arguments = "INSTALL_SILENT=Enable";
+            return true;
+        }
         protected override void AfterInstall() { }
 
         public override string AppURL

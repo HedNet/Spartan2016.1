@@ -21,6 +21,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         protected override bool BeforeDownload()
         {
+            this.Arguments = "/disallow /dt /ql /fp /ebay /foxitbar";
             AcrobatReaderChecker arc = new AcrobatReaderChecker(this.progressBar);
             return !arc.check();
         }

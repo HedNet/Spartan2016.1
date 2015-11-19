@@ -85,8 +85,8 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             Process proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = executable;
             proc.StartInfo.Arguments = arguments;
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.RedirectStandardOutput = false;
             proc.Start();
             while (!proc.HasExited) { Application.DoEvents(); }
             this.Result = proc;

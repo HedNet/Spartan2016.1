@@ -153,7 +153,6 @@ namespace Ria.FxonlineInstaller
 
         private void FxInstaller_Load(object sender, EventArgs e)
         {
-            throw new Exception("Kaboom");
             /* Initialize installer */
             // System.Security.Permissions.FileIOPermission;
             RiaShortcuts = System.IO.Directory.GetCurrentDirectory() + "\\RiaShortcuts.vbs";

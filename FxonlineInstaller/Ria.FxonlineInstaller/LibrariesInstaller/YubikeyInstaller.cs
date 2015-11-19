@@ -13,7 +13,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
 
         public override string AppName
         {
-            get { return "Active X"; }
+            get { return "Yubikey driver"; }
         }
 
         public override string RegistryLocalKey 
