@@ -29,3 +29,4 @@ C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInst
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\FxonlineInstaller.exe.manifest
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\bin\Debug\FxonlineInstaller.application
 C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\FxonlineInstaller.application
+C:\Users\Theos\Documents\GitHub\Spartan2016.1\FxonlineInstaller\Ria.FxonlineInstaller\obj\Debug\Ria.FxonlineInstaller.csprojResolveAssemblyReference.cache

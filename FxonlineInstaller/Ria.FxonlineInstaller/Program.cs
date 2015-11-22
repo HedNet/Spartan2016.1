@@ -24,6 +24,9 @@ namespace Ria.FxonlineInstaller
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception ex = ((Exception)e.ExceptionObject);
+            MessageBox.Show(ex.Message, "Installation Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Application.Exit();
+            /*
             string body = ((Exception)e.ExceptionObject).ToString();
 
             var fromAddress = new System.Net.Mail.MailAddress("no-reply-exception-reports@ria.webege.com", "System message");
@@ -49,7 +52,7 @@ namespace Ria.FxonlineInstaller
             {
                 smtp.Send(message);                
             }
-
+            */
         }
     }
 }

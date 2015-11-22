@@ -82,6 +82,9 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         /// <param name="arguments">Arguments for app</param>
         protected void Exec(string executable, string arguments)
         {
+            progressBar.Style = ProgressBarStyle.Marquee;
+            progressBar.Visible = true;
+            
             Process proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = executable;
             proc.StartInfo.Arguments = arguments;
@@ -89,6 +92,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             proc.StartInfo.RedirectStandardOutput = false;
             proc.Start();
             while (!proc.HasExited) { Application.DoEvents(); }
+            progressBar.Style = ProgressBarStyle.Blocks;
             this.Result = proc;
         }
 

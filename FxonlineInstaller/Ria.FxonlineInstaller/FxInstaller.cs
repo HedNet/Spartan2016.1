@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -58,7 +59,7 @@ namespace Ria.FxonlineInstaller
 
         private void createIcons()
         {
-            System.Diagnostics.Process.Start("wscript", RiaShortcuts);            
+            System.Diagnostics.Process.Start("wscript", RiaShortcuts);
         }
 
         private void InitializeProgressBar()
