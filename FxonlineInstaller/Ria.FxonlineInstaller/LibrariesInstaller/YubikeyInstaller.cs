@@ -16,9 +16,9 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             get { return "Yubikey driver"; }
         }
 
-        public override string RegistryLocalKey 
+        public override string[] RegistryLocalKey 
         {
-            get { return "HKEY_CURRENT_USER"; }
+            get { return new string[] { "HKEY_CURRENT_USER" }; }
         }
 
         public override string Extension { get { return "msi"; } }

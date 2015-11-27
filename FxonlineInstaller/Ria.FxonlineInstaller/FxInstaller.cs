@@ -44,6 +44,7 @@ namespace Ria.FxonlineInstaller
                 ali.InitializeInstaller();
                 progressBar1.Value++;
             }
+            InitializeLibraryRegistry();
             label1.Text = "Configuring internet ActiveX";
             foreach (RegisterEdit.RegisterInfo ri in this.reList)
             {
@@ -53,7 +54,7 @@ namespace Ria.FxonlineInstaller
             }
             createIcons();
             label1.Text = "Installation is finished...";
-            MessageBox.Show("FX-Online Installer", "FX Online installation finished. Thank you for choosing Ria Money Transfer.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("FX Online installation finished. Thank you for choosing Ria Money Transfer.", "FX-Online is Installed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 
@@ -164,15 +165,47 @@ namespace Ria.FxonlineInstaller
 
             using (FileStream ms = File.Create("ria.ico"))
             { Properties.Resources.ria.Save(ms); }
-
+            
             InitializeIncompatibleApps();   // Initializes the detection of all incompatible software
             InitializeLibraryInstaller();   // Initializes application installers like Java or FoxIt
-            InitializeRegEdit();            // Initializes the Registry process
+            InitializeRegEdit();            // Initializes the Registry process            
             InitializeProgressBar();        // Initializes the installer progress bar
             this.Visible = true;
             /* Start installer */
             InitializeInstallation();       // Starts installation
             Application.Exit();
+        }
+
+        private void InitializeLibraryRegistry()
+        {
+            string cd = Directory.GetCurrentDirectory();
+            Directory.CreateDirectory(cd + "\\dll");
+            cd += "\\dll";
+
+            WriteLibraries(cd + "\\COMCAT.DLL", Properties.Resources.COMCAT);
+            WriteLibraries(cd + "\\ExcellaAPI.ocx", Properties.Resources.ExcellaAPI);
+            WriteLibraries(cd + "\\hhctrl.ocx", Properties.Resources.hhctrl);
+            WriteLibraries(cd + "\\itircl.dll", Properties.Resources.itircl);
+            WriteLibraries(cd + "\\itss.dll", Properties.Resources.itss);
+            WriteLibraries(cd + "\\MSStkPrp.dll", Properties.Resources.MSStkPrp);
+            WriteLibraries(cd + "\\msvbvm60.dll", Properties.Resources.msvbvm60);
+            WriteLibraries(cd + "\\MTKbdWedge.ocx", Properties.Resources.MTKbdWedge);
+            WriteLibraries(cd + "\\MTMicrImage.ocx", Properties.Resources.MTMicrImage);
+            WriteLibraries(cd + "\\MTUSBHIDSwipe.ocx", Properties.Resources.MTUSBHIDSwipe);
+            WriteLibraries(cd + "\\OLEPRO32.DLL", Properties.Resources.OLEPRO32);
+            WriteLibraries(cd + "\\OLEAUT32.DLL", Properties.Resources.OLEAUT32);
+            WriteLibraries(cd + "\\SaxComm8.ocx", Properties.Resources.SaxComm8);
+            WriteLibraries(cd + "\\URLUpload.ocx", Properties.Resources.URLUpload);
+            WriteLibraries(cd + "\\VSTwain.dll", Properties.Resources.VSTwain);
+            WriteLibraries(cd + "\\YubiClientAPI.dll", Properties.Resources.YubiClientAPI);
+        }
+
+        private void WriteLibraries(string fileName, byte[] content)
+        {
+            this.label1.Text=String.Format("Writing {0}", fileName);
+            Application.DoEvents();
+            File.WriteAllBytes(fileName, content);
+            LibrariesInstaller.AbstractLibraryInstaller.Exec("Regsvr32", "/s /u " + fileName, ((LibrariesInstaller.AbstractLibraryInstaller)new LibrariesInstaller.FoxitInstaller(this.progressBar2)));
         }
     }
 }

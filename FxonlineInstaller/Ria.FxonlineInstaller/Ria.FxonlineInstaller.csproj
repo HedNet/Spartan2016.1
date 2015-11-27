@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>ReleaseSpartan2016.0.7\</PublishUrl>
+    <PublishUrl>ReleaseSpartan2016.0.10\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,7 +27,7 @@
     <ProductName>FXOnline Installer</ProductName>
     <PublisherName>Hans-Elsieo Fernández</PublisherName>
     <SuiteName>Ria Agent Support</SuiteName>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -137,6 +137,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\dll.zip" />
     <None Include="Ria.FxonlineInstaller_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +174,22 @@
     <None Include="Resources\ria.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\COMCAT.DLL" />
+    <None Include="Resources\ExcellaAPI.ocx" />
+    <None Include="Resources\hhctrl.ocx" />
+    <None Include="Resources\itircl.dll" />
+    <None Include="Resources\itss.dll" />
+    <None Include="Resources\MSStkPrp.dll" />
+    <None Include="Resources\msvbvm60.dll" />
+    <None Include="Resources\MTKbdWedge.ocx" />
+    <None Include="Resources\MTMicrImage.ocx" />
+    <None Include="Resources\MTUSBHIDSwipe.ocx" />
+    <None Include="Resources\OLEAUT32.DLL" />
+    <None Include="Resources\OLEPRO32.DLL" />
+    <None Include="Resources\SaxComm8.ocx" />
+    <None Include="Resources\URLUpload.ocx" />
+    <None Include="Resources\VSTwain.dll" />
+    <None Include="Resources\YubiClientAPI.dll" />
     <Content Include="ria.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

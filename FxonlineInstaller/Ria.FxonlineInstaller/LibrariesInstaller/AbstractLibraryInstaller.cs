@@ -29,6 +29,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         {
             // TODO: Complete member initialization
             this.progressBar = progressBar;
+            this.ShellExecute = true;
         }
         
         // Mensaje del installador
@@ -42,7 +43,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         /// <summary>
         /// Application registration key
         /// </summary>
-        public abstract string RegistryLocalKey { get; }
+        public abstract string[] RegistryLocalKey { get; }
 
         /// <summary>
         /// Starts the installer
@@ -74,26 +75,27 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         protected void Install(string p)
         {
             p = BeforeExecuting(p);
-            this.Exec(p, this.Arguments);
+            AbstractLibraryInstaller.Exec(p, this.Arguments, this);
         }
 
         /// <summary>Executes an app</summary>
         /// <param name="executable">Path to the app</param>
         /// <param name="arguments">Arguments for app</param>
-        protected void Exec(string executable, string arguments)
+        internal static void Exec(string executable, string arguments, AbstractLibraryInstaller LibInst)
         {
+            ProgressBar progressBar = LibInst.progressBar;
             progressBar.Style = ProgressBarStyle.Marquee;
             progressBar.Visible = true;
             
             Process proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = executable;
             proc.StartInfo.Arguments = arguments;
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.RedirectStandardOutput = false;
+            proc.StartInfo.UseShellExecute = LibInst.ShellExecute;
+            proc.StartInfo.RedirectStandardOutput = !LibInst.ShellExecute;
             proc.Start();
             while (!proc.HasExited) { Application.DoEvents(); }
             progressBar.Style = ProgressBarStyle.Blocks;
-            this.Result = proc;
+            LibInst.Result = proc;
         }
 
         /// <summary>Downloads a file from an URL</summary>
@@ -158,8 +160,17 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         /// <returns>Returns true if it is installed. False otherwise.</returns>
         protected virtual bool isInstalled()
         {
-            object a = Microsoft.Win32.Registry.GetValue(this.RegistryLocalKey, "path", null);
-            return this.ForceInstall ? a != null : false;
+            bool isIns = false;
+            if (!this.ForceInstall)
+            {
+                foreach (string key in this.RegistryLocalKey)
+                {
+                    object a = Microsoft.Win32.Registry.GetValue(key, "path", null);
+                    isIns = isIns || (a != null);
+                }
+            }
+            isIns = !this.ForceInstall ? isIns : false;
+            return isIns;
         }
         /// <summary>URL for app installer download</summary>
         public abstract string AppURL { get; }
@@ -169,5 +180,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public virtual bool ForceInstall { get { return false; } }
 
         public virtual string Extension { get { return "exe"; } }
+
+        public bool ShellExecute { get; set; }
     }
 }

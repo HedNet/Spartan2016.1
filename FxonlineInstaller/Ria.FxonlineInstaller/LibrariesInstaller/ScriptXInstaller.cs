@@ -16,15 +16,16 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             get { return "Active X"; }
         }
 
-        public override string RegistryLocalKey
+        public override string[] RegistryLocalKey
         {
-            get { return "HKEY_CURRENT_USER"; }
+            get { return new string[] { "HKEY_CURRENT_USER" }; }
         }
 
         public override string Extension { get { return "msi"; } }
         protected override bool BeforeDownload() { return true; }
         protected override string BeforeExecuting(string path)
         {
+            this.ShellExecute = false;
             this.Arguments = String.Format(" /qn /i {0}.msi", path);
             return "Msiexec.exe";
         }

@@ -12,8 +12,8 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public override string AppName
         { get { return "Internet Explorer 9"; } }
 
-        public override string RegistryLocalKey
-        { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\IEXPLORE.EXE"; } }
+        public override string[] RegistryLocalKey
+        { get { return new string[] { "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\IEXPLORE.EXE" }; } }
 
         protected override bool BeforeDownload() { return this.AppURL != null; }
         protected override void AfterInstall() { }

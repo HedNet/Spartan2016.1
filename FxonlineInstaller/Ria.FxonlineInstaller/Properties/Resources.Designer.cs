@@ -71,12 +71,132 @@ namespace Ria.FxonlineInstaller.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] COMCAT {
+            get {
+                object obj = ResourceManager.GetObject("COMCAT", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] ExcellaAPI {
+            get {
+                object obj = ResourceManager.GetObject("ExcellaAPI", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] hhctrl {
+            get {
+                object obj = ResourceManager.GetObject("hhctrl", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] itircl {
+            get {
+                object obj = ResourceManager.GetObject("itircl", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] itss {
+            get {
+                object obj = ResourceManager.GetObject("itss", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
         internal static System.Drawing.Icon logmein {
             get {
                 object obj = ResourceManager.GetObject("logmein", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] MSStkPrp {
+            get {
+                object obj = ResourceManager.GetObject("MSStkPrp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] msvbvm60 {
+            get {
+                object obj = ResourceManager.GetObject("msvbvm60", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] MTKbdWedge {
+            get {
+                object obj = ResourceManager.GetObject("MTKbdWedge", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] MTMicrImage {
+            get {
+                object obj = ResourceManager.GetObject("MTMicrImage", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] MTUSBHIDSwipe {
+            get {
+                object obj = ResourceManager.GetObject("MTUSBHIDSwipe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] OLEAUT32 {
+            get {
+                object obj = ResourceManager.GetObject("OLEAUT32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] OLEPRO32 {
+            get {
+                object obj = ResourceManager.GetObject("OLEPRO32", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -124,17 +244,57 @@ namespace Ria.FxonlineInstaller.Properties {
         ///	Set objMyShortcut = objShell.CreateShortcut(objShell.SpecialFolders(&quot;Desktop&quot;) + &quot;\RIA - FxOnline.lnk&quot;)
         ///	&apos;get .ico path name
         ///	iconFolderName = &quot;.\.&quot;
-        ///	objMyShortcut.IconLocation = &quot;ria.ico&quot;
+        ///	objMyShortcut.IconLocation = &quot;{0}\ria.ico&quot;
         ///
         ///	&apos;Get IE 32-bit path	
         ///	If OSArc = 64 Then
         ///		strTargetPath = &quot;%ProgramFiles(x86)%\Internet Explorer\iexplore.exe&quot;
         ///	Else 
-        ///		strTargetPath = &quot; [resto de la cadena truncado]&quot;;.
+        ///		strTargetPath [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string RiaShortcuts {
             get {
                 return ResourceManager.GetString("RiaShortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] SaxComm8 {
+            get {
+                object obj = ResourceManager.GetObject("SaxComm8", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] URLUpload {
+            get {
+                object obj = ResourceManager.GetObject("URLUpload", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] VSTwain {
+            get {
+                object obj = ResourceManager.GetObject("VSTwain", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] YubiClientAPI {
+            get {
+                object obj = ResourceManager.GetObject("YubiClientAPI", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

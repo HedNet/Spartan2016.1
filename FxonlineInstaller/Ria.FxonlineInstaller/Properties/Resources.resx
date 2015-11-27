@@ -136,4 +136,52 @@
   <data name="RiaShortcuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RiaShortcuts.vbs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="COMCAT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\COMCAT.DLL;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ExcellaAPI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExcellaAPI.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="hhctrl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hhctrl.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itircl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itircl.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itss.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MSStkPrp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MSStkPrp.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="msvbvm60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\msvbvm60.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MTKbdWedge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MTKbdWedge.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MTMicrImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MTMicrImage.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MTUSBHIDSwipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MTUSBHIDSwipe.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OLEAUT32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OLEAUT32.DLL;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OLEPRO32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OLEPRO32.DLL;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SaxComm8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaxComm8.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="URLUpload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\URLUpload.ocx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VSTwain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VSTwain.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="YubiClientAPI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YubiClientAPI.dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -10,9 +10,9 @@ namespace Ria.FxonlineInstaller.IncompatibleApps
 {
     public class IncompatibleAppCollection : IList<AppInfo>
     {
-        private string IncompatibleMessage;
-        private string IncompatibleMessageReboot;
-        private string IncompatibleCaption;
+        private string IncompatibleMessage = "{0}";
+        private string IncompatibleMessageReboot = "{0}";
+        private string IncompatibleCaption = "{0}";
         private List<AppInfo> AppsList = new List<AppInfo>();
 
         public int ProcessStatus { get; private set; }

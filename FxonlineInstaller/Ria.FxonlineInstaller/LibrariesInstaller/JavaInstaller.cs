@@ -12,8 +12,17 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public override string AppName
         { get { return "Java"; } }
 
-        public override string RegistryLocalKey
-        { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\javaws.exe"; } }
+        public override string[] RegistryLocalKey
+        {
+            get
+            {
+                return new string[] { 
+                    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\javaws.exe",
+                "HKEY_LOCAL_MACHINE\\SOFTWARE\\JavaSoft\\Java Runtime Environment\\CurrentVersion",
+                "HKEY_LOCAL_MACHINE\\SOFTWARE\\JavaSoft\\Java Runtime Environment\\1.5\\JavaHome"
+                };
+            }
+        }
 
         protected override bool BeforeDownload()
         {

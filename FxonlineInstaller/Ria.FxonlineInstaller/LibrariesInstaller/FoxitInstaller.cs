@@ -14,9 +14,9 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
             get { return "Foxit 4.2"; }
         }
 
-        public override string RegistryLocalKey
+        public override string[] RegistryLocalKey
         {
-            get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\foxitreader.exe"; }
+            get { return new string[] { "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\foxitreader.exe" }; }
         }
 
         protected override bool BeforeDownload()
@@ -39,7 +39,7 @@ namespace Ria.FxonlineInstaller.LibrariesInstaller
         public AcrobatReaderChecker(ProgressBar progressBar) : base(progressBar) { }
         public override string AppName { get { return ""; } }
 
-        public override string RegistryLocalKey { get { return "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\AcroRd32.exe"; } }
+        public override string[] RegistryLocalKey { get { return new string[] { "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\AcroRd32.exe" }; } }
 
         protected override bool BeforeDownload()
         { return false; }
