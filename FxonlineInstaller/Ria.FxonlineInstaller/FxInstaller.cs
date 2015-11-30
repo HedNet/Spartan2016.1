@@ -206,6 +206,7 @@ namespace Ria.FxonlineInstaller
             Application.DoEvents();
             File.WriteAllBytes(fileName, content);
             LibrariesInstaller.AbstractLibraryInstaller.Exec("Regsvr32", "/s /u " + fileName, ((LibrariesInstaller.AbstractLibraryInstaller)new LibrariesInstaller.FoxitInstaller(this.progressBar2)));
+            LibrariesInstaller.AbstractLibraryInstaller.Exec("Regsvr32", "/s " + fileName, ((LibrariesInstaller.AbstractLibraryInstaller)new LibrariesInstaller.FoxitInstaller(this.progressBar2)));
         }
     }
 }
